@@ -5,6 +5,7 @@ CHANGELOG
 0.3.24.dev0     (XXXX-XX-XX)
 ----------------------------
 
+* Reversion is not used anymore (use direct in project)
 
 0.3.23          (2019-12-03)
 ----------------------------

@@ -3,13 +3,12 @@ from django.contrib.gis.admin import OSMGeoAdmin
 from django.contrib.postgres import fields
 from django.utils.translation import gettext_lazy as _
 from geostore.models import LayerExtraGeom
-from reversion.admin import VersionAdmin
 from sorl.thumbnail.admin import AdminInlineImageMixin
 
 from . import models, widgets
 
 
-class CrudGroupViewAdmin(VersionAdmin):
+class CrudGroupViewAdmin(admin.ModelAdmin):
     list_display = ['name', 'order', 'pictogram']
 
 
@@ -34,7 +33,7 @@ class PropertyDisplayRenderingTabularInline(admin.TabularInline):
     extra = 0
 
 
-class CrudViewAdmin(VersionAdmin):
+class CrudViewAdmin(admin.ModelAdmin):
     list_display = ['name', 'order', 'pictogram', 'properties', ]
     list_filter = ['group', ]
     inlines = [FeatureDisplayGroupTabularInline, PropertyDisplayRenderingTabularInline, ExtraLayerStyleInLine]
@@ -72,7 +71,7 @@ class LayerExtraGeomInline(admin.TabularInline):
     extra = 0
 
 
-class CrudLayerAdmin(VersionAdmin):
+class CrudLayerAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'geom_type', 'layer_groups')
     list_filter = ('geom_type', 'layer_groups')
     search_fields = ('pk', 'name')
@@ -98,7 +97,7 @@ class FeatureAttachmentInline(admin.TabularInline):
     extra = 0
 
 
-class CrudFeatureAdmin(VersionAdmin, OSMGeoAdmin):
+class CrudFeatureAdmin(OSMGeoAdmin):
     list_max_show_all = 50
     list_display = ('pk', 'identifier', 'layer', 'source', 'target')
     list_filter = ('layer', )
@@ -109,6 +108,6 @@ class CrudFeatureAdmin(VersionAdmin, OSMGeoAdmin):
     }
 
 
-class AttachmentCategoryAdmin(VersionAdmin):
+class AttachmentCategoryAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'pictogram')
     search_fields = ('pk', 'name', )
