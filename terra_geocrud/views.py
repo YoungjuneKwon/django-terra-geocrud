@@ -21,6 +21,7 @@ from rest_framework.settings import api_settings
 from rest_framework.views import APIView
 
 from . import models, serializers, settings as app_settings
+from .pagination import GeoJsonPagination
 
 
 def set_reversion_user(_reversion, user):
@@ -101,6 +102,7 @@ class CrudLayerViewSet(LayerViewSet):
 class CrudFeatureViewSet(ReversionMixin, FeatureViewSet):
     serializer_class_extra_geom = serializers.CrudFeatureExtraGeomSerializer
     permission_classes = api_settings.DEFAULT_PERMISSION_CLASSES
+    pagination_class = GeoJsonPagination
 
     def get_queryset(self):
         qs = super().get_queryset()
