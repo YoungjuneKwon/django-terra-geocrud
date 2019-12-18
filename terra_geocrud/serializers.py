@@ -5,8 +5,9 @@ from pathlib import Path
 
 from django.template.defaultfilters import date
 from django.utils.translation import gettext_lazy as _
-from geostore.models import LayerExtraGeom
+from geostore.models import LayerExtraGeom, Feature
 from geostore.serializers import LayerSerializer, FeatureSerializer, FeatureExtraGeomSerializer
+
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 from rest_framework_gis import serializers as geo_serializers
@@ -421,6 +422,19 @@ class CrudFeatureDetailSerializer(BaseUpdatableMixin, FeatureSerializer):
                 "order": 9999,
                 "properties": properties
             }
+
+        # add relations
+        relations = obj.layer.relations_as_origin.all()
+        results['Relations'] = {
+            "title": "",
+            "pictogram": None,
+            "order": 10000,
+            "properties": {
+                relation.name: CrudFeatureListSerializer(
+                    Feature.objects.filter(pk__in=obj.relations_as_origin.filter(relation=relation).values_list('destination_id', flat=True)),
+                    many=True).data for relation in relations
+            }
+        }
 
         return results
 
