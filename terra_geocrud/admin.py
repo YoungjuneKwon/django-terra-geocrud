@@ -5,7 +5,7 @@ from django.contrib.postgres import fields
 from django.utils.translation import gettext_lazy as _
 from django_json_widget.widgets import JSONEditorWidget
 from django_object_actions import DjangoObjectActions
-from geostore.models import LayerExtraGeom, FeatureExtraGeom
+from geostore.models import LayerExtraGeom, FeatureExtraGeom, LayerRelation
 from reversion.admin import VersionAdmin
 from sorl.thumbnail.admin import AdminInlineImageMixin
 
@@ -113,6 +113,12 @@ class LayerExtraGeomInline(admin.TabularInline):
     extra = 0
 
 
+class LayerRelationInline(admin.TabularInline):
+    model = LayerRelation
+    fk_name = 'origin'
+    extra = 0
+
+
 class CrudLayerAdmin(VersionAdmin):
     list_display = ('pk', 'name', 'geom_type', 'layer_groups')
     list_filter = ('geom_type', 'layer_groups')
@@ -120,7 +126,7 @@ class CrudLayerAdmin(VersionAdmin):
     formfield_overrides = {
         fields.JSONField: {'widget': JSONEditorWidget},
     }
-    inlines = [LayerExtraGeomInline, ]
+    inlines = [LayerExtraGeomInline, LayerRelationInline]
     readonly_fields = ('schema', )  # schema is managed with crud view properties
 
 
