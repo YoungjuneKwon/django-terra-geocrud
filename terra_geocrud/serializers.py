@@ -16,6 +16,7 @@ from terra_geocrud.properties.files import generate_storage_file_path
 
 from . import models
 from .map.styles import get_default_style
+
 from .properties.files import get_storage, get_info_content, get_storage_file_url, \
     get_storage_path_from_infos, store_feature_files
 from .thumbnail_backends import ThumbnailDataFileBackend
@@ -413,9 +414,8 @@ class CrudFeatureDetailSerializer(BaseUpdatableMixin, FeatureSerializer):
             "pictogram": None,
             "order": 10000,
             "properties": {
-                relation.name: CrudFeatureListSerializer(
-                    obj.get_stored_relation_qs(relation.pk),
-                    many=True).data for relation in relations
+                relation.name: render_relation(relation, obj.get_stored_relation_qs(relation.pk))
+                for relation in relations
             }
         }
 
