@@ -8,9 +8,7 @@ from django.db import transaction
 from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
 from django.utils import formats, timezone
-from django.utils.encoding import smart_text
 from django.utils.translation import gettext as _
-from django.views.generic.detail import DetailView
 from geostore import models as geostore_models
 from geostore.views import FeatureViewSet, LayerViewSet
 from mapbox_baselayer.models import MapBaseLayer

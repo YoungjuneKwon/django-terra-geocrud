@@ -15,6 +15,7 @@ from . import models
 from .map.styles import get_default_style
 from .properties.files import get_info_content, get_storage_file_url, \
     get_storage_path_from_infos, store_feature_files
+from .properties.widgets import render_relation
 from .thumbnail_backends import ThumbnailDataFileBackend
 
 thumbnail_backend = ThumbnailDataFileBackend()
