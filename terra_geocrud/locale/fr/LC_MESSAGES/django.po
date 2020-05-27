@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 15:45+0000\n"
+"POT-Creation-Date: 2020-05-27 10:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,6 +66,18 @@ msgstr "Nettoyer les propriétés selon le schema"
 msgid "Clean feature properties not in generated layer schema."
 msgstr "Nettoyer les propriétés des objets non présents dans le json schema"
 
+msgid "Extra geometry"
+msgstr "Géométrie annexe"
+
+msgid "Extra geometries"
+msgstr "Géométrie annexes"
+
+msgid "Relation"
+msgstr "Relation"
+
+msgid "Relations"
+msgstr "Relations"
+
 msgid "Picture"
 msgstr "Image"
 
@@ -77,12 +89,6 @@ msgstr "Pièce-jointe"
 
 msgid "Attachments"
 msgstr "Pièces-jointes"
-
-msgid "Extra geometry"
-msgstr "Géométrie annexe"
-
-msgid "Extra geometries"
-msgstr "Géométrie annexes"
 
 msgid "Geographic Editor Config"
 msgstr "Config. Editeur Géographique"
@@ -143,7 +149,8 @@ msgstr ""
 "readthedocs.io/en/latest/form-customization/"
 
 msgid "Schema properties used in API list by default."
-msgstr "Propriétés utilisées pour le tableau des listes d'objets géographiques."
+msgstr ""
+"Propriétés utilisées pour le tableau des listes d'objets géographiques."
 
 msgid "Schema property used to define feature title."
 msgstr "Propriété utilisée pour le titre de l'objet géographique.'"
@@ -192,10 +199,6 @@ msgstr "Style et définition des tuiles vectorielles"
 
 msgid "Url endpoint for view's features"
 msgstr "URL de la liste des objets géographiques de la vue."
-
-msgid ""
-"Available properties for feature datatable. Ordered, {name: {title, type}}"
-msgstr "Propriétés disponibles pour la liste des objets géographiques. Ordonnés, {name: {title, type}}"
 
 msgid "Main geometry"
 msgstr "Géométrie principale"
