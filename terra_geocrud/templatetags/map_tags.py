@@ -151,12 +151,12 @@ def map_image_url_loader(parser, token):
     - anchor : Type of anchor, paragraph, as-char, char, frame, page
     """
     tag_name, args, kwargs = parse_tag(token, parser)
-    usage = '{{% {tag_name} width="5000" height="5000" feature_included=False extra_features="feature_1" ' \
+    usage = '{{% {tag_name} width=5000 height=5000 feature_included=False extra_features="feature_1" ' \
             'base_layer="mapbaselayer_1" anchor="as-char" %}}'.format(tag_name=tag_name)
     if not all(key in ['width', 'height', 'feature_included',
                        'extra_features', 'anchor', 'base_layer'] for key in kwargs.keys()):
         raise template.TemplateSyntaxError("Usage: %s" % usage)
-    kwargs['request'] = 'POST'
+    kwargs['request'] = 'GET'
     kwargs['data'] = {'feature_included': kwargs.pop('feature_included', None),
                       'extra_features': kwargs.pop('extra_features', None),
                       'width': kwargs.pop('width', None),
