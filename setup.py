@@ -51,7 +51,7 @@ setup(
     ],
     install_requires=[
         'django>=2.2',
-        'django-reversion>=3.0.4',
+        'django-reversion',
         'django-template-model>=1.0.1',
         'django-template-engines>=1.2.26',
         'django-mapbox-baselayer>=0.0.3',
@@ -60,11 +60,11 @@ setup(
         'django-terra-accounts>=0.3.8',
         'djangorestframework-gis',
         'djangorestframework',
-        'requests[security]',
+        'requests',
         'pillow',
-        'sorl-thumbnail>=12.6.2',
+        'sorl-thumbnail',
         # improve configuration with django admin
-        'django-json-widget>=1.0.1',
+        'django-json-widget',
         'django-admin-ordering',
         'django-object-actions',
     ],
